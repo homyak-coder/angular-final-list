@@ -1,23 +1,9 @@
 {
   "posts": [
     {
-      "id": 1,
-      "lastName": "Холодов",
-      "firstName": "Даниилs ",
-      "fathersName": "Александрович",
-      "address": "город Москва"
-    },
-    {
-      "id": 2,
-      "lastName": "Холодоasxsax",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "город Реутов"
-    },
-    {
       "id": 3,
       "lastName": "Cюракшина",
-      "firstName": "Анастасия sas a",
+      "firstName": "Анастасия ",
       "fathersName": "Вечяславовна",
       "address": "город Москва"
     }

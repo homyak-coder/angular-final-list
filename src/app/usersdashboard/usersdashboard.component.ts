@@ -63,8 +63,9 @@ export class UsersdashboardComponent implements OnInit {
 
   deleteUser(user: any) {
     this.api.deleteUser(user.id)
-      .subscribe(res => alert("Пользователь удалён!"))
-    this.getAllUsers()
+      .subscribe(res =>{
+      alert("Пользователь удалён!")
+        this.getAllUsers()})
   }
 
   onEdit(user: any) {
@@ -85,11 +86,13 @@ export class UsersdashboardComponent implements OnInit {
     this.userObj.fathersName = this.formValue.value.fathersName
     this.userObj.address = this.formValue.value.address
     this.api.updateUser(this.userObj, this.userObj.id)
-      .subscribe(res => alert('Успешно обновлён'))
-    let ref = document.getElementById('cancel')
-    ref?.click()
-    this.formValue.reset()
-    this.getAllUsers()
+      .subscribe(res => {
+        alert('Успешно обновлён')
+        let ref = document.getElementById('cancel')
+        ref?.click()
+        this.formValue.reset()
+        this.getAllUsers()
+      })
   }
 
 }
