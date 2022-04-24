@@ -13,8 +13,8 @@ export class ApiService {
     return this.http.post<any>('http://localhost:3000/posts', data)
       .pipe(map((res: any) => {return res}))
   }
-  getUser(data: any) {
-    return this.http.get<any>('http://localhost:3000/posts', data)
+  getUser() {
+    return this.http.get<any>('http://localhost:3000/posts')
       .pipe(map((res: any) => {return res}))
   }
   updateUser(data: any, id: number) {

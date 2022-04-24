@@ -1,9 +1,25 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "lastName": "Cюракшина",
+      "firstName": "Анастасия",
+      "fathersName": "Вечяславовна",
+      "address": "город Москва",
+      "id": 1
+    },
+    {
+      "lastName": "Холодов",
+      "firstName": "Даниил",
+      "fathersName": "Александрович",
+      "address": "город Москва",
+      "id": 2
+    },
+    {
+      "lastName": "Холодов",
+      "firstName": "Даниил",
+      "fathersName": "Александрович",
+      "address": "город Москва",
+      "id": 3
     }
   ],
   "comments": [
