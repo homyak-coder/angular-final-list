@@ -43,22 +43,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="formValue">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Фамилия</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" formControlName="lastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword2" class="form-label">Имя</label>
-            <input type="text" class="form-control" id="exampleInputPassword2">
+            <input type="text" formControlName="firstName" class="form-control" id="exampleInputPassword2">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword3" class="form-label">Отчество</label>
-            <input type="text" class="form-control" id="exampleInputPassword3">
+            <input type="text" formControlName="fathersName" class="form-control" id="exampleInputPassword3">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword4" class="form-label">Адрес</label>
-            <input type="text" class="form-control" id="exampleInputPassword4">
+            <input type="text" formControlName="address" class="form-control" id="exampleInputPassword4">
           </div>
         </form>
       </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-usersdashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersdashboardComponent implements OnInit {
 
-  constructor() { }
+  formValue!: FormGroup
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formValue = this.formBuilder.group({
+       lastName: [''],
+       firstName: [''],
+       fathersName: [''],
+       address: ['']
+    })
   }
 
 }
