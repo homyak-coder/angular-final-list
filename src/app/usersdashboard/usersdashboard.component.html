@@ -27,7 +27,8 @@
     <td>{{user.fathersName}}</td>
     <td>{{user.address}}</td>
     <td>
-      <button class="btn btn-info" >Изменить</button>
+      <button class="btn btn-info" (click)="onEdit(user)" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" class="btn btn-success">Изменить</button>
       <button class="btn btn-danger mx-3" (click)="deleteUser(user)">Удалить</button>
     </td>
   </tr>
@@ -63,7 +64,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
         <button type="button" (click)="postUserDetails()"  class="btn btn-primary">Добавить</button>
       </div>
     </div>

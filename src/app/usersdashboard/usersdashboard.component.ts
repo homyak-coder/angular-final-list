@@ -58,4 +58,11 @@ export class UsersdashboardComponent implements OnInit {
     this.getAllUsers()
   }
 
+  onEdit(user: any) {
+    this.formValue.controls['lastName'].setValue(user.lastName)
+    this.formValue.controls['firstName'].setValue(user.firstName)
+    this.formValue.controls['fathersName'].setValue(user.fathersName)
+    this.formValue.controls['address'].setValue(user.address)
+  }
+
 }
