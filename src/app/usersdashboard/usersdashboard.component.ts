@@ -39,6 +39,7 @@ export class UsersdashboardComponent implements OnInit {
         let ref = document.getElementById('cancel')
         ref?.click()
         this.formValue.reset()
+        this.getAllUsers()
       },
         err => {
         alert('Ошибка!')
@@ -49,6 +50,12 @@ export class UsersdashboardComponent implements OnInit {
     this.api.getUser().subscribe(
       res => this.userData= res
     )
+  }
+
+  deleteUser(user: any) {
+    this.api.deleteUser(user.id)
+      .subscribe(res => alert("Пользователь удалён!"))
+    this.getAllUsers()
   }
 
 }
