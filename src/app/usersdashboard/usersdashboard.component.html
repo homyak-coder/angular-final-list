@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <h1>Выпускной проект</h1>
     <div class="d-flex">
-      <button class="btn btn-success">Добавить пользователя</button>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">
+        Добавить пользователя</button>
     </div>
   </div>
 </nav>
@@ -32,3 +33,39 @@
   </tr>
   </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Информация пользователя</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="exampleInputPassword2">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword3" class="form-label">Отчество</label>
+            <input type="text" class="form-control" id="exampleInputPassword3">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword4" class="form-label">Адрес</label>
+            <input type="text" class="form-control" id="exampleInputPassword4">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Добавить</button>
+      </div>
+    </div>
+  </div>
+</div>
