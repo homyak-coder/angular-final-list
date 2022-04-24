@@ -1,25 +1,25 @@
 {
   "posts": [
     {
+      "id": 1,
       "lastName": "Холодов",
-      "firstName": "Даниил",
+      "firstName": "Даниилs ",
       "fathersName": "Александрович",
-      "address": "город Москва",
-      "id": 1
+      "address": "город Москва"
     },
     {
-      "lastName": "Холодов",
+      "id": 2,
+      "lastName": "Холодоasxsax",
       "firstName": "Даниил",
       "fathersName": "Александрович",
-      "address": "город Москва",
-      "id": 2
+      "address": "город Реутов"
     },
     {
+      "id": 3,
       "lastName": "Cюракшина",
-      "firstName": "Анастасия",
+      "firstName": "Анастасия sas a",
       "fathersName": "Вечяславовна",
-      "address": "город Москва",
-      "id": 3
+      "address": "город Москва"
     }
   ],
   "comments": [],
