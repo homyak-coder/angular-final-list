@@ -2,12 +2,13 @@
   <div class="container-fluid">
     <h1>Выпускной проект</h1>
     <div class="d-flex">
-      <button type="button" (click)="clickAddUser()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">
+      <button type="button" (click)="clickAddUser()" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              class="btn btn-success">
         Добавить пользователя</button>
     </div>
   </div>
 </nav>
-
+<div class="table-responsive">
 <table class="table">
   <thead>
   <tr>
@@ -34,6 +35,7 @@
   </tr>
   </tbody>
 </table>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
