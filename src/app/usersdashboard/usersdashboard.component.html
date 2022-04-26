@@ -9,6 +9,7 @@
   </div>
 </nav>
 <div class="table-responsive">
+  <cdk-virtual-scroll-viewport [itemSize]="25"  class="content">
 <table class="table">
   <thead>
   <tr>
@@ -21,7 +22,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of userData">
+  <tr *cdkVirtualFor="let user of userData">
     <td>{{user.id}}</td>
     <td>{{user.lastName}}</td>
     <td>{{user.firstName}}</td>
@@ -35,6 +36,7 @@
   </tr>
   </tbody>
 </table>
+  </cdk-virtual-scroll-viewport>
 </div>
 
 <!-- Modal -->
@@ -48,20 +50,21 @@
       <div class="modal-body">
         <form *ngIf="formValue" [formGroup]="formValue">
           <div class="mb-3">
-            <label for="validationDefault01" class="form-label">Фамилия</label>
-            <input type="text" formControlName="lastName" class="form-control" id="validationDefault01" required>
+            <label for="surname" class="form-label">Фамилия</label>
+            <input type="text" formControlName="lastName" class="form-control" id="surname" required>
           </div>
           <div class="mb-3">
-            <label for="validationDefault02" class="form-label">Имя</label>
-            <input type="text" formControlName="firstName" class="form-control" id="validationDefault02" required>
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" formControlName="firstName" class="form-control" id="name" required>
           </div>
           <div class="mb-3">
-            <label for="validationDefault03" class="form-label">Отчество</label>
-            <input type="text" formControlName="fathersName" class="form-control" id="validationDefault03" required>
+            <label for="fathersname" class="form-label">Отчество</label>
+            <input type="text" formControlName="fathersName" class="form-control" id="fathersname" required>
           </div>
           <div class="mb-3">
-            <label for="validationDefault04" class="form-label">Адрес</label>
-            <ngx-dadata [config]="configAddress"  formControlName="address" class="form-control" id="validationDefault04" required></ngx-dadata>
+            <label for="address" class="form-label">Адрес</label>
+            <ngx-dadata style="background-color: white " [config]="configAddress"  formControlName="address" class="form-control" id="address"
+                        required></ngx-dadata>
           </div>
         </form>
       </div>

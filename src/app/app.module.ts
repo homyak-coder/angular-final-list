@@ -6,6 +6,8 @@ import { UsersdashboardComponent } from './usersdashboard/usersdashboard.compone
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NgxDadataModule } from '@kolkov/ngx-dadata';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NgxDadataModule } from '@kolkov/ngx-dadata';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-      NgxDadataModule
+      NgxDadataModule,
+      BrowserAnimationsModule,
+      ScrollingModule
     ],
   providers: [],
   bootstrap: [AppComponent]
