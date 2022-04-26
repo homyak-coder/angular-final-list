@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder} from "@angular/forms";
+import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {User} from "../user";
 import {ApiService} from "../shared/api.service";
+import {DadataConfig, DadataType} from "@kolkov/ngx-dadata";
 
 @Component({
   selector: 'app-usersdashboard',
@@ -19,14 +20,15 @@ export class UsersdashboardComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-       lastName: [''],
-       firstName: [''],
-       fathersName: [''],
-       address: ['']
+    this.formValue = new FormGroup({
+       lastName: new FormControl('', Validators.requiredTrue),
+       firstName: new FormControl('', Validators.requiredTrue),
+       fathersName: new FormControl('', Validators.requiredTrue),
+       address: new FormControl('', Validators.requiredTrue)
     })
     this.getAllUsers()
   }
+
 
   clickAddUser() {
     this.formValue.reset()
@@ -94,5 +96,11 @@ export class UsersdashboardComponent implements OnInit {
         this.getAllUsers()
       })
   }
+
+  configAddress: DadataConfig = {
+    apiKey: 'aa8c5699de39bdf635d07cf8ff4da923a0ae4431 ',
+    type: DadataType.address
+  };
+
 
 }

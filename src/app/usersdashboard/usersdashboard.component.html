@@ -46,22 +46,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formValue">
+        <form *ngIf="formValue" [formGroup]="formValue">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Фамилия</label>
-            <input type="text" formControlName="lastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="validationDefault01" class="form-label">Фамилия</label>
+            <input type="text" formControlName="lastName" class="form-control" id="validationDefault01" required>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword2" class="form-label">Имя</label>
-            <input type="text" formControlName="firstName" class="form-control" id="exampleInputPassword2">
+            <label for="validationDefault02" class="form-label">Имя</label>
+            <input type="text" formControlName="firstName" class="form-control" id="validationDefault02" required>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword3" class="form-label">Отчество</label>
-            <input type="text" formControlName="fathersName" class="form-control" id="exampleInputPassword3">
+            <label for="validationDefault03" class="form-label">Отчество</label>
+            <input type="text" formControlName="fathersName" class="form-control" id="validationDefault03" required>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword4" class="form-label">Адрес</label>
-            <input type="text" formControlName="address" class="form-control" id="exampleInputPassword4">
+            <label for="validationDefault04" class="form-label">Адрес</label>
+            <ngx-dadata [config]="configAddress"  formControlName="address" class="form-control" id="validationDefault04" required></ngx-dadata>
           </div>
         </form>
       </div>
@@ -73,3 +73,4 @@
     </div>
   </div>
 </div>
+

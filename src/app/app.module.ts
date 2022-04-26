@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UsersdashboardComponent } from './usersdashboard/usersdashboard.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { NgxDadataModule } from '@kolkov/ngx-dadata';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+      NgxDadataModule
     ],
   providers: [],
   bootstrap: [AppComponent]
