@@ -9,7 +9,6 @@
   </div>
 </nav>
 <div class="table-responsive">
-  <cdk-virtual-scroll-viewport [itemSize]="25"  class="content">
 <table class="table">
   <thead>
   <tr>
@@ -22,7 +21,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *cdkVirtualFor="let user of userData">
+  <tr *ngFor="let user of userData">
     <td>{{user.id}}</td>
     <td>{{user.lastName}}</td>
     <td>{{user.firstName}}</td>
@@ -36,7 +35,6 @@
   </tr>
   </tbody>
 </table>
-  </cdk-virtual-scroll-viewport>
 </div>
 
 <!-- Modal -->
