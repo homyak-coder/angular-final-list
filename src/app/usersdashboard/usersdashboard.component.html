@@ -9,6 +9,7 @@
   </div>
 </nav>
 <div class="table-responsive">
+  <ion-content>
 <table class="table">
   <thead>
   <tr>
@@ -35,7 +36,15 @@
   </tr>
   </tbody>
 </table>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  </ion-content>
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

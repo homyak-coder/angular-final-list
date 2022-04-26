@@ -2,7 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {User} from "../user";
 import {ApiService} from "../shared/api.service";
-import {DadataConfig, DadataType} from "@kolkov/ngx-dadata";
+import {DadataConfig, DadataType} from "@kolkov/ngx-dadata"
+import { IonInfiniteScroll } from '@ionic/angular';
+
+
 @Component({
   selector: 'app-usersdashboard',
   templateUrl: './usersdashboard.component.html',
@@ -11,12 +14,19 @@ import {DadataConfig, DadataType} from "@kolkov/ngx-dadata";
 export class UsersdashboardComponent implements OnInit {
 
 
-
   formValue!: FormGroup
   userObj: User = new User()
   userData !: any
   showAdd !: boolean
   showUpdate !: boolean
+
+  loadData(event: any): any {
+    setTimeout(() => {
+      console.log('Done');
+      this.getAllUsers();
+      event.target.complete()
+    }, 500);
+  }
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) { }
 
