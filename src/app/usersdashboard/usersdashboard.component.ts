@@ -18,6 +18,7 @@ export class UsersdashboardComponent {
   @ViewChild(CdkVirtualScrollViewport) private _scroller!: CdkVirtualScrollViewport;
 
   formValue!: FormGroup
+  submitted: boolean = false
   userObj: User = new User()
   userData !: any
   userCounter : any = 20
@@ -28,13 +29,19 @@ export class UsersdashboardComponent {
 
   ngOnInit(): void {
     this.formValue = new FormGroup({
-       lastName: new FormControl('', Validators.requiredTrue),
-       firstName: new FormControl('', Validators.requiredTrue),
-       fathersName: new FormControl('', Validators.requiredTrue),
-       address: new FormControl('', Validators.requiredTrue)
+       lastName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
+       firstName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
+       fathersName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
+       address: new FormControl(null, [Validators.required])
     })
     this.getAllUsers()
+    console.log(this.ifAllInput())
   }
+
+  get f () {
+    return this.formValue.controls
+  }
+
 
   ngAfterViewInit(): void{
     this._scroller.elementScrolled().pipe(
@@ -127,6 +134,16 @@ export class UsersdashboardComponent {
   configAddress: DadataConfig = {
     apiKey: 'aa8c5699de39bdf635d07cf8ff4da923a0ae4431 ',
     type: DadataType.address
+  }
+
+  ifAllInput(): boolean {
+    return (this.f['lastName'].getError('required') === null
+        && this.f['lastName'].getError('minlength') === null
+    && this.f['firstName'].getError('required') === null
+    && this.f['firstName'].getError('minlength') === null
+    && this.f['fathersName'].getError('required') === null
+    && this.f['fathersName'].getError('minlength') === null
+    && this.f['address'].getError('required') ) === null
   }
 
 
