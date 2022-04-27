@@ -1,4 +1,4 @@
-import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
+import {Component, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {User} from "../user";
 import {ApiService} from "../shared/api.service";
@@ -45,9 +45,9 @@ export class UsersdashboardComponent {
   ngAfterViewInit(): void{
     this._scroller.elementScrolled().pipe(
       map(() => this._scroller.measureScrollOffset("bottom")),
-      pairwise(),
+      pairwise(), // y1 y2
       filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
-      throttleTime(200),
+      throttleTime(1000),
     ).subscribe(() => {
       this.ngZone.run(() => {
         this.fetchMore()

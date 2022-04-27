@@ -11,10 +11,11 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    UsersdashboardComponent
+    UsersdashboardComponent,
   ],
   imports: [
     BrowserModule,
