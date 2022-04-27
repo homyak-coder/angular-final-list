@@ -1,9 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {User} from "../user";
 import {ApiService} from "../shared/api.service";
 import {DadataConfig, DadataType} from "@kolkov/ngx-dadata"
-import { IonInfiniteScroll } from '@ionic/angular';
+import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
+import {filter, pairwise, throttleTime} from "rxjs";
+import {map} from "rxjs/operators";
 
 
 @Component({
@@ -11,24 +13,18 @@ import { IonInfiniteScroll } from '@ionic/angular';
   templateUrl: './usersdashboard.component.html',
   styleUrls: ['./usersdashboard.component.scss']
 })
-export class UsersdashboardComponent implements OnInit {
-
+// export class UsersdashboardComponent implements OnInit {
+export class UsersdashboardComponent {
+  @ViewChild(CdkVirtualScrollViewport) private _scroller!: CdkVirtualScrollViewport;
 
   formValue!: FormGroup
   userObj: User = new User()
   userData !: any
+  userCounter : any = 20
   showAdd !: boolean
   showUpdate !: boolean
 
-  loadData(event: any): any {
-    setTimeout(() => {
-      console.log('Done');
-      this.getAllUsers();
-      event.target.complete()
-    }, 500);
-  }
-
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.formValue = new FormGroup({
@@ -40,6 +36,18 @@ export class UsersdashboardComponent implements OnInit {
     this.getAllUsers()
   }
 
+  ngAfterViewInit(): void{
+    this._scroller.elementScrolled().pipe(
+      map(() => this._scroller.measureScrollOffset("bottom")),
+      pairwise(),
+      filter(([y1, y2]) => (y2 < y1) && (y1 < 140)),
+      throttleTime(200),
+    ).subscribe(() => {
+      this.ngZone.run(() => {
+        this.fetchMore()
+      })
+    })
+  }
 
   clickAddUser() {
     this.formValue.reset()
@@ -68,17 +76,26 @@ export class UsersdashboardComponent implements OnInit {
         })
   }
 
+  fetchMore() {
+    this.api.getUser().subscribe(res => {
+      this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 25))
+      console.log(this.userData)
+    })
+    this.userCounter = this.userData.length
+  }
+
   getAllUsers() {
-    this.api.getUser().subscribe(
-      res => this.userData= res
-    )
+    this.api.getUser().subscribe(res => {
+      this.userData = res.slice(0, this.userCounter)
+    })
   }
 
   deleteUser(user: any) {
     this.api.deleteUser(user.id)
       .subscribe(res =>{
       alert("Пользователь удалён!")
-        this.getAllUsers()})
+        this.getAllUsers()
+      })
   }
 
   onEdit(user: any) {
@@ -93,7 +110,6 @@ export class UsersdashboardComponent implements OnInit {
 
 
   updateUserDetails() {
-
     this.userObj.lastName = this.formValue.value.lastName
     this.userObj.firstName = this.formValue.value.firstName
     this.userObj.fathersName = this.formValue.value.fathersName
@@ -111,7 +127,7 @@ export class UsersdashboardComponent implements OnInit {
   configAddress: DadataConfig = {
     apiKey: 'aa8c5699de39bdf635d07cf8ff4da923a0ae4431 ',
     type: DadataType.address
-  };
+  }
 
 
 }
