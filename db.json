@@ -692,13 +692,6 @@
       "firstName": "Даниил",
       "fathersName": "Александрович",
       "address": "ул. Кирова, д. 7, кв. 39"
-    },
-    {
-      "id": 102,
-      "lastName": "Лох",
-      "firstName": "Лохович",
-      "fathersName": "Лохов",
-      "address": "г Санкт-Петербург, г Ломоносов"
     }
   ],
   "comments": [],

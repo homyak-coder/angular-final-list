@@ -35,7 +35,6 @@ export class UsersdashboardComponent {
        address: new FormControl(null, [Validators.required])
     })
     this.getAllUsers()
-    console.log(this.ifAllInput())
   }
 
   get f () {
@@ -47,7 +46,7 @@ export class UsersdashboardComponent {
     this._scroller.elementScrolled().pipe(
       map(() => this._scroller.measureScrollOffset("bottom")),
       pairwise(),
-      filter(([y1, y2]) => (y2 < y1) && (y1 < 140)),
+      filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
       throttleTime(200),
     ).subscribe(() => {
       this.ngZone.run(() => {
@@ -86,9 +85,8 @@ export class UsersdashboardComponent {
   fetchMore() {
     this.api.getUser().subscribe(res => {
       this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 25))
-      console.log(this.userData)
     })
-    this.userCounter = this.userData.length
+    this.userCounter = (this.userData.length - 10)
   }
 
   getAllUsers() {
@@ -145,6 +143,7 @@ export class UsersdashboardComponent {
     && this.f['fathersName'].getError('minlength') === null
     && this.f['address'].getError('required') ) === null
   }
+
 
 
 }

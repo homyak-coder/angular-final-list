@@ -7,10 +7,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NgxDadataModule } from '@kolkov/ngx-dadata';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {IonicModule, IonInfiniteScroll} from '@ionic/angular';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -24,10 +22,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HttpClientModule,
     NgxDadataModule,
     BrowserAnimationsModule,
-    IonicModule,
     ScrollingModule,
     MatProgressSpinnerModule,
-    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
