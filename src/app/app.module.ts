@@ -9,6 +9,7 @@ import { NgxDadataModule } from '@kolkov/ngx-dadata';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -16,6 +17,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
   declarations: [
     AppComponent,
     UsersdashboardComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
