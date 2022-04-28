@@ -1,0 +1,43 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Информация пользователя</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="item" [formGroup]="item">
+          <div class="mb-3">
+            <label for="surname" class="form-label">Фамилия</label>
+            <input type="text" formControlName="lastName" class="form-control" id="surname">
+            <span *ngIf="f['lastName'].getError('required') != null" class="errormesage">Введите фамилию</span>
+            <span *ngIf="f['lastName'].getError('minlength') != null" class="errormesage">Введите минимум две буквы</span>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" formControlName="firstName" class="form-control" id="name">
+            <span *ngIf="f['firstName'].getError('required') != null" class="errormesage">Введите Имя</span>
+            <span *ngIf="f['firstName'].getError('minlength') != null" class="errormesage">Введите минимум две буквы</span>
+          </div>
+          <div class="mb-3">
+            <label for="fathersname" class="form-label">Отчество</label>
+            <input type="text" formControlName="fathersName" class="form-control" id="fathersname">
+            <span *ngIf="f['fathersName'].getError('required') != null" class="errormesage">Введите Отчество</span>
+            <span *ngIf="f['fathersName'].getError('minlength') != null" class="errormesage">Введите минимум две буквы</span>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Адрес</label>
+            <ngx-dadata  [config]="configAddress"  formControlName="address" class="form-control" id="address"></ngx-dadata>
+            <span *ngIf="f['address'].getError('required') != null" class="errormesage">Введите Адрес</span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button [disabled]="!ifAllInput()" type="button" *ngIf="showAdd" (click)="postUserDetails()"  class="btn btn-primary">Добавить</button>
+        <button type="button" *ngIf="showUpdate" (click)="updateUserDetails()"  class="btn btn-primary">Обновить</button>
+      </div>
+    </div>
+  </div>
+</div>
