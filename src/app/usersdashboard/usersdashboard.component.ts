@@ -65,7 +65,8 @@ export class UsersdashboardComponent {
     this.api.getUser().subscribe(res => {
       this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 25))
     })
-    this.userCounter = (this.userData.length - 10)
+    // this.userCounter = (this.userData.length - 10)
+    this.userCounter = this.userData.length
   }
 
   getAllUsers() {
@@ -94,6 +95,7 @@ export class UsersdashboardComponent {
 
   updateUserData(e: any): void {
       this.userData = e
+      console.log(this.userData)
   }
 
 }

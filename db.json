@@ -1,25 +1,11 @@
 {
   "posts": [
     {
-      "id": 2,
-      "lastName": "Холодов",
-      "firstName": "Денис",
-      "fathersName": "Александров",
-      "address": "г Самара, ул Самарская, д 4"
-    },
-    {
       "id": 3,
       "lastName": "Холодов",
       "firstName": "Даниил",
-      "fathersName": "Александрович",
+      "fathersName": "Петрович",
       "address": "г Москва, ул Капотня, д 2"
-    },
-    {
-      "id": 5,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 2"
     },
     {
       "id": 6,
@@ -648,50 +634,8 @@
       "id": 96,
       "lastName": "Холодов",
       "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 1"
-    },
-    {
-      "id": 97,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 1"
-    },
-    {
-      "id": 98,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 1"
-    },
-    {
-      "id": 99,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 1"
-    },
-    {
-      "id": 100,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 34"
-    },
-    {
-      "id": 101,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александров",
-      "address": "г Москва, ул Тучковская"
-    },
-    {
-      "id": 102,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "wdqw",
-      "address": "ул. Кирова, д. 7, кв. 39"
+      "fathersName": "Евгеньевич",
+      "address": "ул. Кирова, д. 7, кв. 46"
     }
   ],
   "comments": [],
