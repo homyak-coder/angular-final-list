@@ -33,6 +33,7 @@ export class UsersdashboardComponent {
   public showAdd !: boolean
   public showUpdate !: boolean
 
+
   constructor(private api: ApiService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
@@ -45,7 +46,7 @@ export class UsersdashboardComponent {
       map(() => this._scroller.measureScrollOffset("bottom")),
       pairwise(), // y1 y2
       filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
-      throttleTime(1000),
+      throttleTime(500),
     ).subscribe(() => {
       this.ngZone.run(() => {
         this.fetchMore()
@@ -89,6 +90,10 @@ export class UsersdashboardComponent {
     this.formValue.controls['firstName'].setValue(user.firstName)
     this.formValue.controls['fathersName'].setValue(user.fathersName)
     this.formValue.controls['address'].setValue(user.address)
+  }
+
+  updateUserData(e: any): void {
+      this.userData = e
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import {Component, OnInit, Input, AfterViewInit, Output, EventEmitter} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms"
 import {DadataConfig, DadataType} from "@kolkov/ngx-dadata"
 import {ApiService} from "../shared/api.service";
@@ -12,11 +12,9 @@ export class ModalComponent implements OnInit {
 
   @Input() public item!: FormGroup
   @Input() public userObj: any
-  @Input() public userData !: any
   @Input() public showAdd !: boolean
   @Input() public showUpdate !: boolean
-
-  public userCounter = 200
+  @Output() public userDataUpdate = new EventEmitter<any>()
 
   constructor(private api: ApiService) { }
 
@@ -27,6 +25,12 @@ export class ModalComponent implements OnInit {
     return this.item.controls
   }
 
+  getAllUsers() {
+    this.api.getUser().subscribe(res => {
+      this.userDataUpdate.emit(res)
+    })
+  }
+
   postUserDetails() {
     this.userObj.lastName = this.item.value.lastName
     this.userObj.firstName = this.item.value.firstName
@@ -34,7 +38,7 @@ export class ModalComponent implements OnInit {
     this.userObj.address = this.item.value.address
 
     this.api.postUser(this.userObj)
-      .subscribe(() => {
+      .subscribe((res) => {
           alert("Пользователь добавлен")
           let cancel = document.getElementById('cancel')
           cancel?.click()
@@ -52,19 +56,16 @@ export class ModalComponent implements OnInit {
     this.userObj.fathersName = this.item.value.fathersName
     this.userObj.address = this.item.value.address
     this.api.updateUser(this.userObj, this.userObj.id)
-      .subscribe(res => {
+      .subscribe((res) => {
         alert('Успешно обновлён')
-        let ref = document.getElementById('cancel')
-        ref?.click()
-        this.item.reset()
-        this.getAllUsers()
-      })
-  }
-
-  getAllUsers() {
-    this.api.getUser().subscribe(res => {
-      this.userData = res.slice(0, this.userCounter)
-    })
+        let cancel = document.getElementById('cancel')
+        cancel?.click()
+          this.item.reset()
+          this.getAllUsers()
+      },
+        err => {
+          alert('Ошибка!')
+        })
   }
 
   ifAllInput(): boolean {
