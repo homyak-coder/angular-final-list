@@ -1,16 +1,16 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <h1>Выпускной проект</h1>
     <div class="d-flex">
       <button type="button" (click)="clickAddUser()" data-bs-toggle="modal" data-bs-target="#exampleModal"
-              class="btn btn-success">
+              class="btn btn-light">
         Добавить пользователя</button>
     </div>
   </div>
 </nav>
 <div class="table-responsive">
   <cdk-virtual-scroll-viewport #scroller class="content" [itemSize]="70">
-<table class="table">
+<table class="table table-striped">
   <thead>
   <tr>
     <th scope="col">Номер</th>
@@ -29,9 +29,9 @@
     <td>{{user.fathersName}}</td>
     <td>{{user.address}}</td>
     <td>
-      <button class="btn btn-info" (click)="onEdit(user)" type="button" data-bs-toggle="modal"
-              data-bs-target="#exampleModal" class="btn btn-success">Изменить</button>
-      <button class="btn btn-danger mx-3" (click)="deleteUser(user)">Удалить</button>
+      <button class="btn pl-0" (click)="onEdit(user)" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" class="btn">Изменить</button>
+      <button class="btn" (click)="deleteUser(user)">Удалить</button>
     </td>
   </tr>
   </tbody>

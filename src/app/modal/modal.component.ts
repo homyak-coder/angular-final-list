@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   @Input() public showAdd !: boolean
   @Input() public showUpdate !: boolean
 
-  public userCounter = 1
+  public userCounter = 200
 
   constructor(private api: ApiService) { }
 

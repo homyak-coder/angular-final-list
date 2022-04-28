@@ -5,7 +5,7 @@
       "lastName": "Холодов",
       "firstName": "Даниил",
       "fathersName": "Александрович",
-      "address": "Самарская обл, г Чапаевск"
+      "address": "Самарская обл"
     },
     {
       "id": 3,
@@ -677,42 +677,7 @@
       "lastName": "Холодов",
       "firstName": "Даниил",
       "fathersName": "Александрович",
-      "address": "г Москва, ул Капотня, д 2Г стр 1"
-    },
-    {
-      "id": 101,
-      "lastName": "Неретин",
-      "firstName": "Иван",
-      "fathersName": "Евгеньевич",
-      "address": "г Москва"
-    },
-    {
-      "id": 102,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Новосибирск, ул Кирова, д 7, кв 31"
-    },
-    {
-      "id": 103,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "Самарская обл, г Чапаевск"
-    },
-    {
-      "id": 104,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Екатеринбург"
-    },
-    {
-      "id": 105,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "г Саратов"
+      "address": "г Москва, ул Капотня, д 2"
     }
   ],
   "comments": [],
