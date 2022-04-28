@@ -1,8 +1,7 @@
-import {Component, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
+import {Component, NgZone, ViewChild} from '@angular/core';
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {User} from "../user";
 import {ApiService} from "../shared/api.service";
-import {DadataConfig, DadataType} from "@kolkov/ngx-dadata"
 import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {filter, pairwise, throttleTime} from "rxjs";
 import {map} from "rxjs/operators";
@@ -13,32 +12,31 @@ import {map} from "rxjs/operators";
   templateUrl: './usersdashboard.component.html',
   styleUrls: ['./usersdashboard.component.scss']
 })
-// export class UsersdashboardComponent implements OnInit {
+
 export class UsersdashboardComponent {
   @ViewChild(CdkVirtualScrollViewport) private _scroller!: CdkVirtualScrollViewport;
 
-  formValue!: FormGroup
-  submitted: boolean = false
-  userObj: User = new User()
-  userData !: any
-  userCounter : any = 20
-  showAdd !: boolean
-  showUpdate !: boolean
+  public formValue = new FormGroup({
+    lastName: new FormControl(null,
+      Validators.compose([Validators.required, Validators.minLength(2)])),
+  firstName: new FormControl(null,
+    Validators.compose([Validators.required, Validators.minLength(2)])),
+  fathersName: new FormControl(null,
+    Validators.compose([Validators.required, Validators.minLength(2)])),
+  address: new FormControl(null, [Validators.required])
+})
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private ngZone: NgZone) { }
+  public submitted: boolean = false
+  public userObj: User = new User()
+  public userData !: any
+  public userCounter : any = 20
+  public showAdd !: boolean
+  public showUpdate !: boolean
+
+  constructor(private api: ApiService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
-    this.formValue = new FormGroup({
-       lastName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
-       firstName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
-       fathersName: new FormControl(null, Validators.compose([Validators.required, Validators.minLength(2)])),
-       address: new FormControl(null, [Validators.required])
-    })
     this.getAllUsers()
-  }
-
-  get f () {
-    return this.formValue.controls
   }
 
 
@@ -61,26 +59,6 @@ export class UsersdashboardComponent {
     this.showUpdate = false
   }
 
-
-  postUserDetails() {
-    this.userObj.lastName = this.formValue.value.lastName
-    this.userObj.firstName = this.formValue.value.firstName
-    this.userObj.fathersName = this.formValue.value.fathersName
-    this.userObj.address = this.formValue.value.address
-
-    this.api.postUser(this.userObj)
-      .subscribe(res => {
-        console.log(res)
-        alert("Пользователь добавлен")
-        let ref = document.getElementById('cancel')
-        ref?.click()
-        this.formValue.reset()
-        this.getAllUsers()
-      },
-        err => {
-        alert('Ошибка!')
-        })
-  }
 
   fetchMore() {
     this.api.getUser().subscribe(res => {
@@ -112,38 +90,5 @@ export class UsersdashboardComponent {
     this.formValue.controls['fathersName'].setValue(user.fathersName)
     this.formValue.controls['address'].setValue(user.address)
   }
-
-
-  updateUserDetails() {
-    this.userObj.lastName = this.formValue.value.lastName
-    this.userObj.firstName = this.formValue.value.firstName
-    this.userObj.fathersName = this.formValue.value.fathersName
-    this.userObj.address = this.formValue.value.address
-    this.api.updateUser(this.userObj, this.userObj.id)
-      .subscribe(res => {
-        alert('Успешно обновлён')
-        let ref = document.getElementById('cancel')
-        ref?.click()
-        this.formValue.reset()
-        this.getAllUsers()
-      })
-  }
-
-  configAddress: DadataConfig = {
-    apiKey: 'aa8c5699de39bdf635d07cf8ff4da923a0ae4431 ',
-    type: DadataType.address
-  }
-
-  ifAllInput(): boolean {
-    return (this.f['lastName'].getError('required') === null
-        && this.f['lastName'].getError('minlength') === null
-    && this.f['firstName'].getError('required') === null
-    && this.f['firstName'].getError('minlength') === null
-    && this.f['fathersName'].getError('required') === null
-    && this.f['fathersName'].getError('minlength') === null
-    && this.f['address'].getError('required') ) === null
-  }
-
-
 
 }

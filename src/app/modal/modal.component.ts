@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms"
 import {DadataConfig, DadataType} from "@kolkov/ngx-dadata"
 import {ApiService} from "../shared/api.service";
@@ -19,10 +19,7 @@ export class ModalComponent implements OnInit {
 
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
-    console.log(this.item)
-  }
-
+  ngOnInit(): void {}
 
   get f () {
     return this.item.controls

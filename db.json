@@ -1,13 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "lastName": "Холодов",
-      "firstName": "Даниил",
-      "fathersName": "Александрович",
-      "address": "Самарская обл, г Чапаевск"
-    },
-    {
       "id": 2,
       "lastName": "Холодов",
       "firstName": "Даниил",
@@ -39,7 +32,7 @@
       "id": 7,
       "lastName": "Холодов",
       "firstName": "Даниил",
-      "fathersName": "Александрович",
+      "fathersName": "Александров",
       "address": "г Москва, ул Капотня, д 2Г стр 1"
     },
     {
@@ -685,6 +678,20 @@
       "firstName": "Даниил",
       "fathersName": "Александрович",
       "address": "г Москва, ул Капотня, д 2Г стр 1"
+    },
+    {
+      "id": 101,
+      "lastName": "Неретин",
+      "firstName": "Иван",
+      "fathersName": "Евгеньевич",
+      "address": "г Москва"
+    },
+    {
+      "id": 102,
+      "lastName": "Холодов",
+      "firstName": "Даниил",
+      "fathersName": "Александрович",
+      "address": "г Новосибирск, ул Кирова, д 7, кв 30"
     }
   ],
   "comments": [],
