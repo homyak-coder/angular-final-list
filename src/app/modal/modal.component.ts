@@ -10,16 +10,18 @@ import {ApiService} from "../shared/api.service";
 })
 export class ModalComponent implements OnInit {
 
-  @Input() item!: FormGroup
-  @Input() userObj: any
-  @Input() userData !: any
-  @Input() userCounter : any = 20
-  @Input() showAdd !: boolean
-  @Input() showUpdate !: boolean
+  @Input() public item!: FormGroup
+  @Input() public userObj: any
+  @Input() public userData !: any
+  @Input() public showAdd !: boolean
+  @Input() public showUpdate !: boolean
+
+  public userCounter = 1
 
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   get f () {
     return this.item.controls
@@ -32,11 +34,10 @@ export class ModalComponent implements OnInit {
     this.userObj.address = this.item.value.address
 
     this.api.postUser(this.userObj)
-      .subscribe(res => {
-          console.log(res)
+      .subscribe(() => {
           alert("Пользователь добавлен")
-          let ref = document.getElementById('cancel')
-          ref?.click()
+          let cancel = document.getElementById('cancel')
+          cancel?.click()
           this.item.reset()
           this.getAllUsers()
         },

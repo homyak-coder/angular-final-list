@@ -8,7 +8,6 @@ import {HttpClientModule} from "@angular/common/http";
 import { NgxDadataModule } from '@kolkov/ngx-dadata';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from "@angular/cdk/scrolling";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ModalComponent } from './modal/modal.component';
 
 
@@ -26,7 +25,6 @@ import { ModalComponent } from './modal/modal.component';
     NgxDadataModule,
     BrowserAnimationsModule,
     ScrollingModule,
-    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
