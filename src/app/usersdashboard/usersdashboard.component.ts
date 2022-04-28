@@ -29,7 +29,7 @@ export class UsersdashboardComponent {
   public submitted: boolean = false
   public userObj: User = new User()
   public userData !: any
-  public userCounter : any = 20
+  public userCounter : number = 20
   public showAdd !: boolean
   public showUpdate !: boolean
 
@@ -46,7 +46,7 @@ export class UsersdashboardComponent {
       map(() => this._scroller.measureScrollOffset("bottom")),
       pairwise(), // y1 y2
       filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
-      throttleTime(500),
+      throttleTime(400),
     ).subscribe(() => {
       this.ngZone.run(() => {
         this.fetchMore()
@@ -63,7 +63,7 @@ export class UsersdashboardComponent {
 
   fetchMore() {
     this.api.getUser().subscribe(res => {
-      this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 25))
+      this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 15))
     })
     // this.userCounter = (this.userData.length - 10)
     this.userCounter = this.userData.length
