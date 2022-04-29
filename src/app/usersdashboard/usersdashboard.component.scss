@@ -5,3 +5,10 @@
 .table-responsive {
   font-size: 17px;
 }
+
+.table tr {
+  transition: all .3s
+}
+.table tr:hover {
+  background-color: #ccc;
+}

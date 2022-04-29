@@ -46,36 +46,35 @@ export class UsersdashboardComponent {
       map(() => this._scroller.measureScrollOffset("bottom")),
       pairwise(), // y1 y2
       filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
-      throttleTime(200),
+      throttleTime(800),
     ).subscribe(() => {
       this.ngZone.run(() => {
-        this.fetchMore()
+        this.getMore()
       })
     })
   }
 
-  clickAddUser() {
+  public clickAddUser() {
     this.formValue.reset()
     this.showAdd = true
     this.showUpdate = false
   }
 
 
-  fetchMore() {
+  public getMore() {
     this.api.getUser().subscribe(res => {
       this.userData = this.userData.concat(res.slice(this.userCounter, this.userCounter + 15))
     })
-    // this.userCounter = (this.userData.length - 10)
     this.userCounter = this.userData.length
   }
 
-  getAllUsers() {
+  public getAllUsers() {
     this.api.getUser().subscribe(res => {
       this.userData = res.slice(0, this.userCounter)
     })
   }
 
-  deleteUser(user: any) {
+  public deleteUser(user: any) {
     this.api.deleteUser(user.id)
       .subscribe(res =>{
       alert("Пользователь удалён!")
@@ -83,7 +82,7 @@ export class UsersdashboardComponent {
       })
   }
 
-  onEdit(user: any) {
+  public onEdit(user: any) {
     this.showAdd = false
     this.showUpdate = true
     this.userObj.id = user.id
@@ -93,9 +92,8 @@ export class UsersdashboardComponent {
     this.formValue.controls['address'].setValue(user.address)
   }
 
-  updateUserData(e: any): void {
+  public updateUserData(e: any): void {
       this.userData = e
-      console.log(this.userData)
   }
 
 }
