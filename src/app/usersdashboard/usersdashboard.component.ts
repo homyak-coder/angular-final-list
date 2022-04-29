@@ -46,7 +46,7 @@ export class UsersdashboardComponent {
       map(() => this._scroller.measureScrollOffset("bottom")),
       pairwise(), // y1 y2
       filter(([y1, y2]) => (y2 < y1) && (y2 < 140)),
-      throttleTime(400),
+      throttleTime(200),
     ).subscribe(() => {
       this.ngZone.run(() => {
         this.fetchMore()
