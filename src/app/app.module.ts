@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { UsersdashboardComponent } from './usersdashboard/usersdashboard.component';
+import { UserstableComponent } from './userstable/userstable.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NgxDadataModule } from '@kolkov/ngx-dadata';
@@ -14,7 +14,7 @@ import { ModalComponent } from './modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersdashboardComponent,
+    UserstableComponent,
     ModalComponent,
   ],
   imports: [

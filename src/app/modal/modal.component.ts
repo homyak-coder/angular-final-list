@@ -21,17 +21,17 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get f () {
+  public get f () {
     return this.item.controls
   }
 
-  getAllUsers() {
+  public getAllUsers():void  {
     this.api.getUser().subscribe(res => {
       this.userDataUpdate.emit(res)
     })
   }
 
-  postUserDetails() {
+  public postUserDetails(): void {
     this.userObj.lastName = this.item.value.lastName
     this.userObj.firstName = this.item.value.firstName
     this.userObj.fathersName = this.item.value.fathersName
@@ -50,7 +50,7 @@ export class ModalComponent implements OnInit {
         })
   }
 
-  updateUserDetails() {
+  public updateUserDetails():void  {
     this.userObj.lastName = this.item.value.lastName
     this.userObj.firstName = this.item.value.firstName
     this.userObj.fathersName = this.item.value.fathersName
@@ -68,7 +68,7 @@ export class ModalComponent implements OnInit {
         })
   }
 
-  ifAllInput(): boolean {
+  public ifAllInput(): boolean {
     return (this.f['lastName'].getError('required') === null
       && this.f['lastName'].getError('minlength') === null
       && this.f['firstName'].getError('required') === null

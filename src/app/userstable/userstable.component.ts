@@ -8,12 +8,12 @@ import {map} from "rxjs/operators";
 
 
 @Component({
-  selector: 'app-usersdashboard',
-  templateUrl: './usersdashboard.component.html',
-  styleUrls: ['./usersdashboard.component.scss']
+  selector: 'app-userstable',
+  templateUrl: './userstable.component.html',
+  styleUrls: ['./userstable.component.scss']
 })
 
-export class UsersdashboardComponent {
+export class UserstableComponent {
   @ViewChild(CdkVirtualScrollViewport) private _scroller!: CdkVirtualScrollViewport;
 
   public formValue = new FormGroup({
